@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Author:</b>
+  <%= @article.author %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @article.title %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @article.text %>
+</p>
+
+<br />
+<br />
+<div class='comments'>
+  <h2>Comments</h2>
+  <% @article.comments.each do |comment| %>
+    <div class='comment'>
+      <div class='author'>
+        <%= "Author: #{comment.author}" %>
+      </div>
+      <%= comment.text %>
+    </div>
+    <br />
+  <% end %>
+</div>
+<br />
+<br />
+
+<%= link_to 'comment', new_article_comment_path(@article) %>
+
+<br />
+<br />
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
